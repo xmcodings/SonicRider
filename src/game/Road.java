@@ -36,7 +36,7 @@ public abstract class Road {
 	}
 	
 	abstract void Draw(Graphics g);
-	
+	abstract void updateSize(int x, int y);
 	
 }
 
@@ -57,10 +57,10 @@ class Line extends Road{
             g2d.drawLine(x1, y1, x2, y2);
 	}
 	
-        void updateSize()
+        void updateSize(int x, int y)
         {
-            
-            
+            x2 = x;
+            y2 = y;
         }
         
 }

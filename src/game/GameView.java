@@ -29,12 +29,16 @@ public class GameView {
 	viewPanel gamePanel;
         JToggleButton pencilButton;
         JToggleButton penButton;
-        JToggleButton playButton;
+        JButton playButton;
         JButton viewChangeButton;
         ImageIcon penimg;
+        private boolean isPlay;
+        private Sonic sonicd;
+        
         private ButtonGroup toggleButtons;
-	public GameView(ArrayList<Road> road){
+	public GameView(ArrayList<Road> road, Sonic s){
             roadsToDraw = road;
+            sonicd = s;
             //JFrame.setDefaultLookAndFeelDecorated(true);
             penimg = new ImageIcon("pen.png");
             mainframe = new JFrame();
@@ -42,7 +46,7 @@ public class GameView {
             gamePanel = new viewPanel();
             pencilButton = new JToggleButton("pencil");
             penButton = new JToggleButton("pen");
-            playButton = new JToggleButton("play");
+            playButton = new JButton("play");
             viewChangeButton = new JButton("left");
             toggleButtons = new ButtonGroup();
             /////////////////////
@@ -122,7 +126,8 @@ public class GameView {
                         {
                             x.Draw(g);
                         }
-                    }		
+                    }
+                    sonicd.Draw(g);
 		}
 	}
 	
