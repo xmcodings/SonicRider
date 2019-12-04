@@ -39,18 +39,9 @@ public class GameController {
         //this.theGameView.addPlayListener(new PlayListener());
         //this.theGameView.addChangeViewListener(new ChangeViewListener());
         
-        
+        timer = new Timer(10, new TimerThread());
         ////////////////timer
-        
-        
-        
-        
     }
-    
-    
-   
-    
-    
     
     ////////////////////////////////inner class ///////////////////////////////
 
@@ -132,7 +123,8 @@ public class GameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             GameMain.togglePlay();
-            timer = new Timer(20, new TimerThread());
+            theGameView.changePlayIcon();
+            System.out.println("play Button" + GameMain.isPlay);
             if(GameMain.isPlay)
             {
                 timer.start();
@@ -150,6 +142,11 @@ public class GameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(GameMain.isPlay);
+            if(!GameMain.isPlay)
+            {
+            	//PlayButton.setText("Start");
+            	timer.stop();
+            }
             theGameView.repaintMypanel();
         }
     }
