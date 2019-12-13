@@ -344,9 +344,9 @@ public class GameController {
 	class SelectButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//if (coinsToGet.get(0).getCoin() < 10) {
-			//	return;
-			//}
+			if (coinsToGet.get(0).getCoin() < 10) {
+				return;
+			}
 			coinsToGet.get(0).coinPlus(-10);
 			theGameView.setScore(coinsToGet.get(0).getCoin());
 			File f = new File("\newimage.png");
